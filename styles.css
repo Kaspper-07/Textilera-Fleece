@@ -282,32 +282,101 @@ body {
 =========================================================== */
 
 .about-section {
+  background: 
+    url('img/bg-textilera.svg') center/cover no-repeat,
+    linear-gradient(135deg, #fcf6ed 0%, #f3e7d9 100%);
+  border-radius: 2em;
+  box-shadow: 0 4px 24px -8px #c8a97020;
+  position: relative;
+  overflow: hidden;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 3.5rem;
   padding-bottom: 4rem;
+  margin-bottom: 3.5rem;
 }
+
 .about-title {
-  font-size: 2.4rem;
-  font-weight: bold;
-  color: #2d2d5c;
-  letter-spacing: 0.01em;
+  font-family: 'Oswald', 'Montserrat', Arial, sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #ffe067 10%, #c8a970 50%, #303974 90%);
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(.48,1.2,.64,1),
+    transform 0.8s cubic-bezier(.48,1.2,.64,1),
+    background-position 2.5s cubic-bezier(.65,0,.35,1);
 }
+
+.about-title.animated {
+  opacity: 1;
+  transform: translateY(0) scale(1.02);
+  background-position: right center;
+    animation: gradientMove 2.7s cubic-bezier(.65,0,.35,1) forwards;
+
+}
+
+@keyframes gradientMove {
+  from {
+    background-position: left center;
+  }
+  to {
+    background-position: right center;
+  }
+}
+/* Subrayado animado */
+.about-title::after {
+  content: '';
+  display: block;
+  margin: 0.5em auto 0 auto;
+  height: 5px;
+  width: 0%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ffe067 0%, #c8a970 60%, #303974 100%);
+  transition: width 0.7s cubic-bezier(.52,1.25,.62,1);
+}
+.about-title.animated::after {
+  width: 70%;
+}
+@media (max-width: 700px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+}
+
+
 .about-desc {
-  font-size: 1.18rem;
-  color: #222;
-  max-width: 750px;
+  font-family: 'Merriweather', 'Montserrat', Arial, sans-serif;
+  font-size: 1.21rem;
+  font-weight: 400;
+  color: #3e2e13;
+  line-height: 1.7;
+  max-width: 900px;
   margin: 0 auto 3.5rem auto;
-  line-height: 1.6;
+  background: rgba(255,255,255,0.75);
+  border-radius: 1.2em;
+  padding: 1.7rem 2rem;
+  box-shadow: 0 2px 18px -8px #c8a97025;
 }
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 2.5rem 2rem;
   justify-items: center;
   margin: 0 auto;
-  max-width: 1080px;
+  max-width: 1320px;
 }
+
 .about-card {
   background: rgba(255,255,255,0.97);
   border-radius: 1.2em;
@@ -317,7 +386,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.15s;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(.48,1.2,.64,1), transform 0.7s cubic-bezier(.48,1.2,.64,1);
@@ -356,21 +424,38 @@ body {
   margin: 0;
   line-height: 1.5;
 }
-@media (max-width: 700px) {
-  .about-title { font-size: 1.7rem; }
-  .about-desc { font-size: 1rem; }
-  .about-card { padding: 1.1rem 0.6rem 0.9rem 0.6rem; }
-  .about-grid { gap: 1.3rem 0.5rem; }
+
+@media (max-width: 900px) {
+  .about-section {
+    padding-top: 2rem;
+    padding-bottom: 2.3rem;
+  }
+  .about-title {
+    font-size: 2rem;
+  }
+  .about-desc {
+    font-size: 1rem;
+    padding: 1.1rem 0.7rem;
+  }
+  .about-grid {
+    gap: 1.3rem 0.5rem;
+  }
+  .about-card {
+    padding: 1.1rem 0.6rem 0.9rem 0.6rem;
+    min-height: 180px;
+  }
 }
+
 
 /* ===========================================================
    6. OTROS AJUSTES GENERALES Y FOOTER
 =========================================================== */
 
 .container {
-  max-width: 1100px;
+  max-width: 2200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 3.5vw;
+  box-sizing: border-box;
 }
 section {
   margin-bottom: 3.5rem;
@@ -438,4 +523,388 @@ li {
   section {
     padding-top: 1.3rem;
   }
+}
+
+/* ==============================
+   OBJETO SOCIAL - CSS Completo, Corregido y Ajustado
+============================== */
+
+.media-card-section.compact {
+  position: relative;
+  overflow: visible;
+  max-width: 1320px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 3rem 3.5vw;
+  margin-bottom: 3.5rem;
+  box-sizing: border-box;
+}
+
+.media-card-section.compact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%; /* Cambio para igualar ancho de sección superior */
+  height: 100%;
+  background: url('img/bg-textilera.svg') center/cover no-repeat,
+              linear-gradient(135deg, #f7f3ea 0%, #f3e7d9 100%);
+  border-radius: 2em;
+  z-index: -1;
+  box-shadow: 0 6px 32px -8px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 1360px) {
+  .media-card-section.compact::before {
+    width: calc(100% - 7vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .media-card-section.compact::before {
+    width: calc(100% - 2rem);
+  }
+}
+
+.media-card.media-card-acordeon {
+  display: flex;
+  border-radius: 1.1em;
+  overflow: hidden;
+  background: none;
+  height: auto;
+  align-items: stretch;
+}
+
+.media-card-text {
+  background: rgba(255,255,255,0.89);
+  flex: 1.2;
+  border-radius: 1.1em 0 0 1.1em;
+  box-shadow: 0 2px 18px -10px rgba(200,169,112,0.2);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.media-card-text h2 {
+  color: #303974;
+  font-family: 'Oswald', 'Montserrat', Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ffe067 10%, #c8a970 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.1rem;
+  text-align: left;
+  letter-spacing: 0.04em;
+}
+
+.media-card-img {
+  flex: 1;
+  min-width: 220px;
+  background: #222;
+  border-radius: 0 1.1em 1.1em 0;
+  overflow: hidden;
+  display: flex;
+}
+
+.media-card-img video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Acordeón Objeto Social */
+.acordeon-objeto-social {
+  width: 100%;
+  max-width: 670px;
+  margin: 0 auto;
+}
+
+.acordeon-item + .acordeon-item {
+  margin-top: 0.5em;
+}
+
+.acordeon-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.15rem;
+  color: #303974;
+  font-weight: 700;
+  padding: 0.7em 1.1em 0.7em 0.3em;
+  border-radius: 1em;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 10px -8px rgba(200,169,112,0.08);
+  gap: 0.7em;
+  transition: background 0.18s;
+}
+
+.acordeon-btn:hover, 
+.acordeon-btn.active {
+  background: linear-gradient(90deg, rgba(255,224,103,0.2), rgba(200,169,112,0.1));
+}
+
+.acordeon-svg {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.55em;
+  opacity: 0.75;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.acordeon-btn.active .acordeon-svg {
+  transform: scale(1.16) rotate(-5deg);
+  opacity: 1;
+}
+
+.acordeon-icon {
+  margin-left: auto;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.acordeon-icon::before, .acordeon-icon::after {
+  content: '';
+  position: absolute;
+  background: #bb974b;
+  transition: 0.2s;
+}
+
+.acordeon-icon::before {
+  width: 70%;
+  height: 3px;
+  left: 15%;
+  top: 47%;
+}
+
+.acordeon-icon::after {
+  height: 70%;
+  width: 3px;
+  left: 47%;
+  top: 15%;
+}
+
+.acordeon-btn.active .acordeon-icon::after {
+  transform: scaleY(0);
+}
+
+.acordeon-panel {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(18px) scale(0.98);
+  transition: all 0.38s cubic-bezier(.44,1.14,.61,1.02);
+  padding: 0 0.5em;
+}
+
+.acordeon-panel.open {
+  max-height: 300px;
+  opacity: 1;
+  padding: 0.7em 0.5em;
+  background: rgba(255,255,255,0.90);
+  border-radius: 0.7em;
+  transform: translateY(0) scale(1.01);
+}
+
+
+
+/* ==============================
+   MISION/VISION MEDIA CARD
+============================== */
+.mv-media-card-section {
+  margin-bottom: 3.5rem;
+  padding-top: 2.5rem;
+}
+
+.mv-media-card {
+  display: flex;
+  border-radius: 2em;
+  overflow: hidden;
+  background: #fff;
+  min-height: 320px;
+  align-items: stretch;
+  box-shadow: 0 6px 28px -10px #2222;
+}
+
+.mv-media-img {
+  flex: 1.05;
+  min-width: 300px;
+  background: #222;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+.mv-media-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mv-media-text {
+  flex: 1.6;
+  padding: 3rem 2.6rem 3rem 2.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mv-media-text h2 {
+  color: #bb974b;
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.mv-flex {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.mision, .vision {
+  flex: 1 1 0;
+}
+
+.mision h3, .vision h3 {
+  color: #222;
+  font-size: 1.22rem;
+  margin-bottom: 1em;
+  letter-spacing: 0.01em;
+}
+
+.mision p, .vision p {
+  font-size: 1.08rem;
+  color: #222;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .mv-media-card {
+    flex-direction: column;
+    min-height: 220px;
+  }
+  .mv-media-img,
+  .mv-media-img img {
+    min-height: 180px;
+    max-height: 260px;
+  }
+  .mv-media-text {
+    padding: 2rem 1.1rem;
+  }
+  .mv-flex {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+}
+
+/* ==============================
+   PRODUCTOS - TARJETAS
+============================== */
+
+.products-section {
+  padding-top: 2.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.products-section h2 {
+  color: #bb974b;
+  font-size: 2.2rem;
+  margin-bottom: 2.4rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.2rem 1.7rem;
+  justify-items: center;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: rgba(255,255,255,0.97);
+  border-radius: 1.3em;
+  box-shadow: 0 4px 22px -8px rgba(80,70,20,0.13);
+  padding: 2.4rem 1.3rem 1.3rem 1.3rem;
+  min-height: 260px;
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition:
+    opacity 0.85s cubic-bezier(.48,1.2,.64,1),
+    transform 0.85s cubic-bezier(.48,1.2,.64,1);
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1.01);
+}
+
+.product-card:hover {
+  transform: translateY(-6px) scale(1.035);
+  box-shadow: 0 8px 32px -8px rgba(80,70,20,0.18);
+}
+
+.product-icon {
+  margin-bottom: 1.25rem;
+}
+
+.product-card .product-icon svg {
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.8s cubic-bezier(.48,1.2,.64,1);
+  opacity: 0.82;
+  filter: drop-shadow(0 2px 8px #bb974b20);
+}
+
+.product-card.visible .product-icon svg {
+  transform: scale(1.08) rotate(-2deg);
+  opacity: 1;
+}
+
+.product-title {
+  font-size: 1.17rem;
+  color: #2d2d5c;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.product-desc {
+  font-size: 1.04rem;
+  color: #303042;
+  margin: 0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 0 1rem;
+  }
+  section {
+    padding-top: 1.3rem;
+  }
+  .products-section h2 { font-size: 1.4rem; }
+  .products-grid { gap: 1.1rem 0.5rem; }
+  .product-card { padding: 1.1rem 0.5rem 0.9rem 0.5rem; }
 }

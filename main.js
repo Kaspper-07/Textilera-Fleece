@@ -109,3 +109,51 @@ function typeWriterEffect(element, text, speed = 80) {
   }
   type();
 }
+
+// ====== ANIMACIÓN SCROLL-REVEAL PARA PRODUCTOS ======
+const productCards = document.querySelectorAll('.product-card');
+function revealProductsOnScroll() {
+  productCards.forEach((card, idx) => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 60) {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, idx * 140); // escalonado
+    }
+  });
+}
+window.addEventListener('scroll', revealProductsOnScroll);
+revealProductsOnScroll(); // Por si ya están en pantalla
+
+
+// ====== ANIMACIÓN ENTRADA DEL TÍTULO ABOUT ======
+function animateAboutTitleOnScroll() {
+  const aboutTitle = document.querySelector('.about-title');
+  if (!aboutTitle) return;
+  const rect = aboutTitle.getBoundingClientRect();
+  if (rect.top < window.innerHeight - 60) {
+    aboutTitle.classList.add('animated');
+    window.removeEventListener('scroll', animateAboutTitleOnScroll);
+  }
+}
+window.addEventListener('scroll', animateAboutTitleOnScroll);
+animateAboutTitleOnScroll(); // Por si ya está en pantalla al cargar
+
+
+// Acordeón para objeto social
+document.querySelectorAll('.acordeon-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const wasActive = btn.classList.contains('active');
+    // Cierra todos
+    document.querySelectorAll('.acordeon-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.acordeon-panel').forEach(p => p.classList.remove('open'));
+    // Abre solo si no estaba activo
+    if (!wasActive) {
+      btn.classList.add('active');
+      const panel = btn.nextElementSibling;
+      panel.classList.add('open');
+    }
+  });
+});
+// Abre el primero al cargar (opcional)
+document.querySelector('.acordeon-btn')?.click();
