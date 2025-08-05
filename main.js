@@ -1,159 +1,125 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ====== NAVBAR: Sticky y Hamburguesa ======
-  const header = document.querySelector('.site-header');
-  let lastScroll = 0;
+  // ========== 1. HERO: PARALLAX & MÁQUINA DE ESCRIBIR ==========
+  const hero = document.querySelector('.hero');
+  const video = document.querySelector('.hero-bg-video');
+  const banner = document.querySelector('.hero-banner');
 
   window.addEventListener('scroll', () => {
-    const current = window.pageYOffset;
-    // Hide/show header al hacer scroll
-    if (current > lastScroll && current > 100) header.classList.add('hidden');
-    else header.classList.remove('hidden');
-    // Scrolled state para fondo opaco
-    header.classList.toggle('scrolled', current > 50);
-    lastScroll = current;
+    const scrollY = window.scrollY;
+    if (video) video.style.transform = `translateY(${scrollY * 0.12}px) scale(1.02)`;
+    if (banner) banner.style.transform = `translateY(${scrollY * 0.06}px)`;
+    handleHeaderScroll();
+    revealSectionsOnScroll();
   });
 
-  // Hamburguesa para menú móvil
-  const toggleBtn = document.getElementById('hamburger-toggle');
-  const navList = document.querySelector('.main-nav ul');
-  if (toggleBtn && navList) {
-    toggleBtn.addEventListener('click', () => {
-      navList.classList.toggle('open');
-      toggleBtn.classList.toggle('open');
-    });
-    // Cierra menú al dar clic en un enlace
-    navList.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => {
-        navList.classList.remove('open');
-        toggleBtn.classList.remove('open');
-      })
-    );
+  // Máquina de escribir para título y slogan
+  function typeWriterEffect(element, text, speed = 48, callback) {
+    element.textContent = '';
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      } else if (callback) {
+        callback();
+      }
+    }
+    type();
   }
 
-  // ====== TYPEWRITER EFFECT EN HERO (Opcional, remueve si no lo necesitas) ======
   const heroTitle = document.querySelector('.hero-title');
-  if (heroTitle) typeWriterEffect(heroTitle, 'Textilera Fleece', 100);
-
-  // ====== PARTICLES EN MAIN CONTENT (NO EN HERO NI FOOTER) ======
-  const particlesBg = document.getElementById('particles-js');
-  if (particlesBg) {
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 700 } },
-        color: { value: '#c8a970' },
-        shape: { type: ['circle','edge'], stroke: { width: 0, color: '#000' } },
-        opacity: {
-          value: 0.5,
-          anim: { enable: true, speed: 0.4, opacity_min: 0.1, sync: false }
-        },
-        size: {
-          value: 4,
-          random: true,
-          anim: { enable: true, speed: 3, size_min: 1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 100,
-          color: '#c8a970',
-          opacity: 0.25,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1.2,
-          random: true,
-          straight: false,
-          out_mode: 'out',
-          attract: { enable: true, rotateX: 600, rotateY: 1200 }
-        }
-      },
-      interactivity: {
-        detect_on: 'canvas',
-        events: {
-          onhover: { enable: true, mode: 'grab' }
-        },
-        modes: {
-          grab: { distance: 150, line_linked: { opacity: 0.35 } }
-        }
-      },
-      retina_detect: true
+  const heroSlogan = document.querySelector('.hero-slogan');
+  if (heroTitle && heroSlogan) {
+    const titleText = heroTitle.dataset.text || heroTitle.textContent;
+    const sloganText = heroSlogan.dataset.text || heroSlogan.textContent;
+    typeWriterEffect(heroTitle, titleText, 38, () => {
+      setTimeout(() => typeWriterEffect(heroSlogan, sloganText, 42), 350);
     });
   }
 
-  // ====== ANIMACIÓN SCROLL-REVEAL PARA TARJETAS E ICONOS ======
-  const aboutCards = document.querySelectorAll('.about-card');
-  function revealOnScroll() {
-    aboutCards.forEach((card, idx) => {
-      const rect = card.getBoundingClientRect();
+  // ========== 2. HEADER: STICKY Y TRANSFORMACIÓN AL SCROLL ==========
+  const siteHeader = document.querySelector('.site-header');
+  function handleHeaderScroll() {
+    if (!siteHeader) return;
+    if (window.scrollY > 70) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  }
+  handleHeaderScroll();
+
+  // ========== 3. ANIMACIÓN UNIVERSAL DE TODAS LAS SECCIONES ==========
+  function revealSectionsOnScroll() {
+    // TODAS las secciones modernas
+    document.querySelectorAll('.section-animate').forEach(section => {
+      const rect = section.getBoundingClientRect();
       if (rect.top < window.innerHeight - 60) {
-        setTimeout(() => {
-          card.classList.add('visible');
-        }, idx * 120);
+        section.classList.add('visible');
       }
     });
-  }
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll(); // Ejecuta por si ya están en pantalla
-});
 
-// ====== TYPEWRITER EFFECT (puedes eliminar si no lo necesitas) ======
-function typeWriterEffect(element, text, speed = 80) {
-  element.textContent = '';
-  let i = 0;
-  function type() {
-    if (i < text.length) {
-      element.textContent += text.charAt(i);
-      i++;
-      setTimeout(type, speed);
+    // Compatibilidad para secciones legacy
+    const about = document.querySelector('#empresa.fancy-bg');
+    if (about) {
+      const title = about.querySelector('.about-title');
+      const desc = about.querySelector('.about-desc');
+      if (title) {
+        const rect = title.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) title.classList.add('visible');
+      }
+      if (desc) {
+        const rect = desc.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) setTimeout(() => desc.classList.add('visible'), 160);
+      }
+    }
+    const valores = document.querySelector('#valores.fancy-bg');
+    if (valores) {
+      const title = valores.querySelector('.about-title, .valores-title');
+      const desc = valores.querySelector('.about-desc, .valores-desc');
+      const grid = valores.querySelector('.about-grid, .valores-grid');
+      if (title) {
+        const rect = title.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) title.classList.add('visible');
+      }
+      if (desc) {
+        const rect = desc.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) setTimeout(() => desc.classList.add('visible'), 160);
+      }
+      if (grid) {
+        const rect = grid.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) setTimeout(() => grid.classList.add('visible'), 300);
+      }
     }
   }
-  type();
-}
+  // Ejecuta al cargar y con scroll
+  revealSectionsOnScroll();
+  window.addEventListener('scroll', revealSectionsOnScroll);
 
-// ====== ANIMACIÓN SCROLL-REVEAL PARA PRODUCTOS ======
-const productCards = document.querySelectorAll('.product-card');
-function revealProductsOnScroll() {
-  productCards.forEach((card, idx) => {
-    const rect = card.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 60) {
-      setTimeout(() => {
-        card.classList.add('visible');
-      }, idx * 140); // escalonado
-    }
+  // ========== 4. ACORDEÓN OBJETO SOCIAL ==========
+  const acordeonItems = document.querySelectorAll('.acordeon-objeto-social .acordeon-item');
+  acordeonItems.forEach(item => {
+    const btn = item.querySelector('.acordeon-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      // Solo uno abierto a la vez
+      acordeonItems.forEach(i => {
+        if (i !== item) i.classList.remove('active');
+      });
+      item.classList.toggle('active');
+    });
   });
-}
-window.addEventListener('scroll', revealProductsOnScroll);
-revealProductsOnScroll(); // Por si ya están en pantalla
 
-
-// ====== ANIMACIÓN ENTRADA DEL TÍTULO ABOUT ======
-function animateAboutTitleOnScroll() {
-  const aboutTitle = document.querySelector('.about-title');
-  if (!aboutTitle) return;
-  const rect = aboutTitle.getBoundingClientRect();
-  if (rect.top < window.innerHeight - 60) {
-    aboutTitle.classList.add('animated');
-    window.removeEventListener('scroll', animateAboutTitleOnScroll);
+  // ========== 5. PARTICLES.JS (opcional) ==========
+  particlesJS('particles-js', {
+  "particles": {
+    "number": { "value": 45, "density": { "enable": true, "value_area": 900 } },
+    "color": { "value": "#c8e6f7" },
+    "shape": { "type": "circle" },
+    "opacity": { "value": 0.70 },
+    "size": { "value": 4 },
+    "move": { "enable": true, "speed": 2.5 }
   }
-}
-window.addEventListener('scroll', animateAboutTitleOnScroll);
-animateAboutTitleOnScroll(); // Por si ya está en pantalla al cargar
-
-
-// Acordeón para objeto social
-document.querySelectorAll('.acordeon-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const wasActive = btn.classList.contains('active');
-    // Cierra todos
-    document.querySelectorAll('.acordeon-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.acordeon-panel').forEach(p => p.classList.remove('open'));
-    // Abre solo si no estaba activo
-    if (!wasActive) {
-      btn.classList.add('active');
-      const panel = btn.nextElementSibling;
-      panel.classList.add('open');
-    }
-  });
+})
 });
-// Abre el primero al cargar (opcional)
-document.querySelector('.acordeon-btn')?.click();

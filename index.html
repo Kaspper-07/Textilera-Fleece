@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Textilera Fleece – Empresa</title>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat:400,600,800&display=swap"
       rel="stylesheet"
@@ -17,56 +17,56 @@
       href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap"
       rel="stylesheet"
     />
-
+    <!-- Partículas fondo -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Estilos -->
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- ===== HEADER / NAVBAR ===== -->
+    
+    <div id="particles-js"></div>
     <header class="site-header">
-      <div class="container">
-        <a href="index.html" class="logo">
+      <div class="container nav-transform">
+        <a href="#" class="logo">
           <img src="img/textilera-logo.png" alt="Textilera Fleece" />
         </a>
         <nav class="main-nav">
           <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="empresa.html" class="active">Empresa</a></li>
-            <li><a href="productos.html">Productos</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="#" class="active">Inicio</a></li>
+            <li><a href="#empresa">Empresa</a></li>
+            <li><a href="#valores">Valores</a></li>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
           </ul>
         </nav>
-        <!-- Hamburguesa para móvil -->
-        <button
-          id="hamburger-toggle"
-          class="hamburger-toggle"
-          aria-label="Abrir menú"
-        >
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </header>
 
-    <!-- ===== HERO CON VIDEO DE FONDO ===== -->
+    <!-- HERO SECTION -->
     <section class="hero">
-      <video class="hero-bg-video" autoplay muted loop playsinline>
-        <source src="img/textilera-hero.mp4" type="video/mp4" />
+      <video class="hero-bg-video" autoplay loop muted playsinline>
+        <source src="./img/textilera-hero.mp4" type="video/mp4" />
         Tu navegador no soporta video HTML5.
       </video>
-      <div class="hero-content container">
-        <h1 class="hero-title">Textilera Fleece</h1>
-        <p class="hero-subtitle">
-          Fabricación y comercialización de telas de hilos naturales, sintéticos
-          y mixtos.
-        </p>
+      <div class="hero-overlay"></div>
+      <div class="hero-banner">
+        <div class="hero-banner-left">
+          <span class="hero-title" data-text="Textilera Fleece"></span>
+        </div>
+        <div class="hero-banner-right">
+          <span
+            class="hero-slogan"
+            data-text="Innovación y calidad en textiles para tu industria"
+          ></span>
+        </div>
       </div>
     </section>
 
-    <!-- ===== CONTENIDO PRINCIPAL CON PARTICULAS DE FONDO ===== -->
+    <!-- CONTENIDO PRINCIPAL CON PARTICULAS DE FONDO -->
     <div class="main-content-with-particles">
-      <div id="particles-js"></div>
       <div class="site-main-content">
-        <!-- ===== SOBRE NOSOTROS ===== -->
-        <section id="empresa" class="about-section container">
+        <!-- SOBRE NOSOTROS / EMPRESA -->
+        <section id="empresa" class="about-section container fancy-bg">
           <h2 class="about-title">SOBRE TEXTILERA FLEECE</h2>
           <p class="about-desc">
             En Textilera Fleece, fusionamos nuestra experiencia con una visión
@@ -74,11 +74,11 @@
             internacional. Somos especialistas en la compra, fabricación y
             comercialización de telas de alta calidad elaboradas a partir de
             hilos naturales, sintéticos y mezclas inteligentes, adaptándonos a
-            las tendencias globales y a las exigencias de nuestros clientes.
+            las tendencias globales y a las exigencias de nuestros clientes.<br /><br />
             Contamos con una infraestructura robusta y tecnología de punta, lo
             que nos permite atender pedidos industriales, comerciales y
             personalizados, garantizando procesos eficientes y productos con
-            altos estándares de resistencia, durabilidad y sustentabilidad.
+            altos estándares de resistencia, durabilidad y sustentabilidad.<br /><br />
             Nuestra labor no se limita a la manufactura: investigamos,
             desarrollamos y gestionamos nuevas soluciones textiles, colaborando
             activamente en la transformación y crecimiento del sector. Nuestra
@@ -90,11 +90,112 @@
             de tela llevan el sello distintivo de calidad, confianza y
             cumplimiento que caracteriza a Textilera Fleece.
           </p>
+          <div class="puntada-bajo"></div>
+        </section>
 
+        <!-- VALORES / VENTAJAS COMPETITIVAS -->
+        <section id="valores" class="about-section container fancy-bg">
+          <h2 class="about-title">VALORES Y VENTAJAS COMPETITIVAS</h2>
           <div class="about-grid">
             <div class="about-card">
-              <!-- ICONO: Calidad -->
               <div class="about-icon">
+                <!-- ICONO: Innovación -->
+                <svg
+                  width="48"
+                  height="48"
+                  fill="none"
+                  stroke="#2196f3"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="24" cy="24" r="18" />
+                  <path d="M24 12v10l6 4" />
+                </svg>
+              </div>
+              <h3 class="about-card-title">Innovación Constante</h3>
+              <p>
+                Nos mantenemos a la vanguardia en diseño, adaptación de
+                tecnologías y desarrollo de nuevas soluciones textiles.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">
+                <!-- ICONO: Calidad -->
+                <svg
+                  width="48"
+                  height="48"
+                  fill="none"
+                  stroke="#ffb300"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="12" y="12" width="24" height="24" rx="5" />
+                  <path d="M17 26h14M17 32h14M24 17h2" />
+                </svg>
+              </div>
+              <h3 class="about-card-title">Excelencia en Calidad</h3>
+              <p>
+                Seleccionamos los mejores materiales y garantizamos procesos
+                certificados para telas resistentes, suaves y duraderas.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">
+                <!-- ICONO: Compromiso global -->
+                <svg
+                  width="48"
+                  height="48"
+                  fill="none"
+                  stroke="#2196f3"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="24" cy="24" r="15" />
+                  <path d="M12 24h24M24 12v24" />
+                </svg>
+              </div>
+              <h3 class="about-card-title">Compromiso Global</h3>
+              <p>
+                Importamos y exportamos telas e insumos, colaborando con aliados
+                estratégicos y clientes en México y el extranjero.
+              </p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">
+                <!-- ICONO: Responsabilidad -->
+                <svg
+                  width="48"
+                  height="48"
+                  fill="none"
+                  stroke="#ffb300"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M24 8v8M24 32v8M8 24h8M32 24h8" />
+                  <circle cx="24" cy="24" r="11" />
+                </svg>
+              </div>
+              <h3 class="about-card-title">Responsabilidad y Cumplimiento</h3>
+              <p>
+                Cumplimos con altos estándares éticos, legales y sociales en
+                todos nuestros procesos y relaciones comerciales.
+              </p>
+            </div>
+          </div>
+          <div class="puntada-bajo"></div>
+        </section>
+
+        <!-- FORTALEZAS / DIFERENCIALES (Tarjetas originales) -->
+        <!-- FORTALEZAS / DIFERENCIALES -->
+        <section class="about-section container section-animate">
+          <div class="about-grid">
+            <div class="about-card">
+              <div class="about-icon">
+                <!-- Icono personalizado -->
                 <svg
                   width="48"
                   height="48"
@@ -115,7 +216,6 @@
               </p>
             </div>
             <div class="about-card">
-              <!-- ICONO: Tecnología -->
               <div class="about-icon">
                 <svg
                   width="48"
@@ -137,7 +237,6 @@
               </p>
             </div>
             <div class="about-card">
-              <!-- ICONO: Sustentabilidad -->
               <div class="about-icon">
                 <svg
                   width="48"
@@ -161,7 +260,6 @@
               </p>
             </div>
             <div class="about-card">
-              <!-- ICONO: Servicio -->
               <div class="about-icon">
                 <svg
                   width="48"
@@ -185,10 +283,10 @@
           </div>
         </section>
 
-        <!-- ===== OBJETO SOCIAL ===== -->
+        <!-- OBJETO SOCIAL -->
         <section
           id="objeto-social"
-          class="media-card-section compact container"
+          class="media-card-section compact container section-animate fancy-bg"
         >
           <div class="media-card media-card-acordeon">
             <div class="media-card-text">
@@ -197,7 +295,6 @@
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de tela -->
                       <svg
                         width="24"
                         height="24"
@@ -215,22 +312,21 @@
                     transformación
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Comercializamos y manufacturamos telas de hilos naturales,
-                      sintéticos o artificiales para aplicaciones en vestuario,
-                      mobiliario, decoración y usos industriales. Nuestro
-                      enfoque abarca desde la innovación en fibras hasta la
-                      entrega puntual y personalizada para cada cliente,
-                      asegurando calidad certificada y variedad de productos
-                      textiles de última generación.
+                      La compra y venta, fabricación, distribución,
+                      transformación, importación y exportación de toda clase de
+                      telas de hilos naturales, sintéticos, artificiales o de
+                      cualesquiera otras fibras, que actualmente o en el futuro
+                      se utilicen para la confección de telas, en general
+                      cualquier actividad de la industria textil y sus
+                      derivados.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de logística -->
                       <svg
                         width="24"
                         height="24"
@@ -246,25 +342,21 @@
                         <path d="M12 11V6a3 3 0 0 1 3-3" />
                       </svg>
                     </span>
-                    <strong>II.</strong> Importación y exportación de insumos y
-                    maquinaria
+                    <strong>II.</strong> Materiales textiles y transformaciones
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Facilitamos la importación y exportación de insumos,
-                      maquinaria especializada y productos terminados, con
-                      procesos logísticos eficientes y cumplimiento estricto de
-                      normativas internacionales, colaborando con aliados
-                      estratégicos en mercados globales para asegurar excelencia
-                      en cada operación.
+                      Compra y venta de materiales textiles y sus diversas
+                      transformaciones, así como todo tipo de hilos textiles que
+                      se pudieran generar en sus procesos de producción y
+                      transformación.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de distribución -->
                       <svg
                         width="24"
                         height="24"
@@ -278,23 +370,22 @@
                         <path d="M12 7v5l3 3" />
                       </svg>
                     </span>
-                    <strong>III.</strong> Distribución nacional e internacional
+                    <strong>III.</strong> Distribución de telas y fibras
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Nos especializamos en la distribución de telas y materias
-                      primas a mayoristas, talleres de confección, diseñadores y
-                      cadenas comerciales tanto a nivel nacional como
-                      internacional, garantizando abasto continuo y atención
-                      personalizada.
+                      Distribución de toda clase de telas de hilos naturales,
+                      sintéticos, artificiales o de cualesquiera otras fibras,
+                      que actualmente o en el futuro se utilicen para la
+                      confección de telas, en general cualquier actividad de la
+                      industria textil y sus derivados.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de innovación -->
                       <svg
                         width="24"
                         height="24"
@@ -308,23 +399,23 @@
                         <path d="M12 6v6l4 2" />
                       </svg>
                     </span>
-                    <strong>IV.</strong> Desarrollo tecnológico e innovación
+                    <strong>IV.</strong> Transformación y fabricación de telas
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Apostamos por la investigación, el desarrollo de nuevos
-                      materiales, acabados funcionales y gestión de patentes,
-                      incorporando tecnología de vanguardia para crear
-                      soluciones textiles inteligentes, amigables con el medio
-                      ambiente y con valor agregado.
+                      Compra y venta, transformación y fabricación de toda clase
+                      de telas de hilos naturales, sintéticos, artificiales o de
+                      cualesquiera otras fibras, que actualmente o en el futuro
+                      se utilicen para la confección de telas, en general
+                      cualquier actividad de la industria textil y sus
+                      derivados.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de consultoría -->
                       <svg
                         width="24"
                         height="24"
@@ -338,23 +429,19 @@
                         <path d="M12 16v2M8 8h8" />
                       </svg>
                     </span>
-                    <strong>V.</strong> Consultoría y supervisión técnica
+                    <strong>V.</strong> Diseño y tecnología textil
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Brindamos servicios de consultoría, asesoría y supervisión
-                      técnica en procesos de infraestructura textil,
-                      optimización de recursos y mejora continua, ayudando a
-                      nuestros socios comerciales a maximizar sus capacidades
-                      productivas y su rentabilidad.
+                      Diseño de materiales textiles, adaptación de tecnologías,
+                      gestión de patentes, etcétera.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de inversión -->
                       <svg
                         width="24"
                         height="24"
@@ -368,53 +455,22 @@
                         <path d="M8 12h8M12 8v8" />
                       </svg>
                     </span>
-                    <strong>VI.</strong> Inversiones y contratos mercantiles
+                    <strong>VI.</strong> Importación y exportación de telas
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Gestionamos la adquisición, enajenación y manejo de
-                      valores, acciones o participaciones en otras sociedades, y
-                      celebramos contratos mercantiles que fortalezcan el
-                      crecimiento, la diversificación y la estabilidad de la
-                      empresa.
+                      Importación y exportación de toda clase de telas de hilos
+                      naturales, sintéticos, artificiales o de cualesquiera
+                      otras fibras, que actualmente o en el futuro se utilicen
+                      para la confección de telas, en general cualquier
+                      actividad de la industria textil y sus derivados.
                     </p>
                   </div>
                 </div>
                 <div class="acordeon-item">
                   <button class="acordeon-btn">
                     <span class="acordeon-svg">
-                      <!-- Icono de financiamiento -->
-                      <svg
-                        width="24"
-                        height="24"
-                        fill="none"
-                        stroke="#303974"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      >
-                        <rect x="6" y="7" width="12" height="10" rx="2" />
-                        <path d="M9 17v2M15 17v2" />
-                      </svg>
-                    </span>
-                    <strong>VII.</strong> Financiamientos y operaciones
-                    mercantiles
-                    <span class="acordeon-icon"></span>
-                  </button>
-                  <div class="acordeon-panel">
-                    <p>
-                      Participamos en la contratación de financiamientos,
-                      emisión y aval de títulos de crédito y otras operaciones
-                      mercantiles, apoyando el desarrollo sostenible y la
-                      proyección a futuro de Textilera Fleece.
-                    </p>
-                  </div>
-                </div>
-                <div class="acordeon-item">
-                  <button class="acordeon-btn">
-                    <span class="acordeon-svg">
-                      <!-- Icono de actividades complementarias -->
                       <svg
                         width="24"
                         height="24"
@@ -424,23 +480,76 @@
                         stroke-linecap="round"
                         stroke-linejoin="round"
                       >
-                        <rect x="5" y="5" width="14" height="14" rx="4" />
-                        <path d="M9 9h6v6H9z" />
+                        <rect x="5" y="5" width="14" height="14" rx="3" />
+                        <path d="M12 12h4" />
                       </svg>
                     </span>
-                    <strong>VIII.</strong> Actividades complementarias y
-                    relacionadas
+                    <strong>VII.</strong> Comercialización de materiales
+                    textiles
                     <span class="acordeon-icon"></span>
                   </button>
-                  <div class="acordeon-panel">
+                  <div class="acordeon-content">
                     <p>
-                      Realizamos cualquier actividad adicional que se relacione
-                      con la industria textil y sus derivados, siempre en el
-                      marco de la legalidad y la mejora continua, respondiendo a
-                      las necesidades del mercado y nuestros clientes.
+                      En general, cualquier otra actividad referente a la
+                      comercialización de materiales textiles y sus derivados.
                     </p>
                   </div>
                 </div>
+                <div class="acordeon-item">
+                  <button class="acordeon-btn">
+                    <span class="acordeon-svg">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="#2196f3"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <rect x="7" y="7" width="10" height="10" rx="2" />
+                        <path d="M9 11h6M12 9v6" />
+                      </svg>
+                    </span>
+                    <strong>VIII.</strong> Actos de comercio relacionados
+                    <span class="acordeon-icon"></span>
+                  </button>
+                  <div class="acordeon-content">
+                    <p>
+                      Ejecutar toda clase de actos de comercio relacionados con
+                      el objeto anterior.
+                    </p>
+                  </div>
+                </div>
+                <div class="acordeon-item">
+                  <button class="acordeon-btn">
+                    <span class="acordeon-svg">
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        stroke="#ffb300"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="8" />
+                        <path d="M8 16l8-8M8 8l8 8" />
+                      </svg>
+                    </span>
+                    <strong>IX.</strong> Contratación de servicios y adquisición
+                    de derechos
+                    <span class="acordeon-icon"></span>
+                  </button>
+                  <div class="acordeon-content">
+                    <p>
+                      Contratar activa o pasivamente toda clase de servicios,
+                      así como adquirir patentes, marcas, nombres comerciales,
+                      opciones y derechos de propiedad relacionados.
+                    </p>
+                  </div>
+                </div>
+                <!-- Puedes seguir agregando más items si lo necesitas, hasta XVI -->
               </div>
             </div>
             <div class="media-card-img">
@@ -450,16 +559,17 @@
               </video>
             </div>
           </div>
+          <div class="puntada-bajo"></div>
         </section>
 
-        <!-- ===== MISIÓN Y VISIÓN ===== -->
-        <section id="mision-vision" class="mv-media-card-section container">
+        <!-- MISIÓN Y VISIÓN -->
+        <section
+          id="mision-vision"
+          class="mv-media-card-section container fancy-bg section-animate"
+        >
           <div class="mv-media-card">
             <div class="mv-media-img">
-              <img
-                src="img/mision-vision.jpg"
-                alt="Misión y Visión Textilera"
-              />
+              <img src="img/mision-vision.jpg" alt="Misión y Visión" />
             </div>
             <div class="mv-media-text">
               <h2>Misión y Visión</h2>
@@ -467,35 +577,33 @@
                 <div class="mision">
                   <h3>Misión</h3>
                   <p>
-                    En Textilera Fleece trabajamos con el compromiso de entregar
-                    innovación textil, garantizar calidad y consistencia en cada
-                    lote, fomentar la sustentabilidad mediante prácticas
-                    responsables y crear valor compartido con proveedores,
-                    colaboradores y clientes.
+                    Ofrecer soluciones textiles innovadoras, sostenibles y de
+                    alta calidad, generando valor para nuestros clientes y
+                    colaboradores.
                   </p>
                 </div>
                 <div class="vision">
                   <h3>Visión</h3>
                   <p>
-                    Aspiramos a consolidarnos como líderes de la transformación
-                    textil en Latinoamérica, reconocidos por nuestra innovación
-                    continua en fibras inteligentes, una huella ambiental
-                    neutra, desarrollo de talento y expansión de la calidad
-                    “Made in Mexico” a nuevos mercados.
+                    Ser líderes en la transformación textil, reconocidos por la
+                    innovación y excelencia en nuestros productos y servicios.
                   </p>
                 </div>
               </div>
             </div>
           </div>
+          <div class="puntada-bajo"></div>
         </section>
 
-        <!-- ===== NUESTROS PRODUCTOS ===== -->
-        <section id="productos" class="products-section container">
+        <!-- PRODUCTOS -->
+        <section
+          id="productos"
+          class="products-section container fancy-bg section-animate"
+        >
           <h2>Nuestros Productos</h2>
           <div class="products-grid">
             <div class="product-card">
               <div class="product-icon">
-                <!-- SVG de algodón -->
                 <svg
                   width="52"
                   height="52"
@@ -511,14 +619,13 @@
                   <path d="M26 32V46" />
                 </svg>
               </div>
-              <h3 class="product-title">Telas de fibras naturales</h3>
+              <h3 class="product-title">Telas Naturales</h3>
               <p class="product-desc">
                 Algodón, lino y mezclas ecológicas para moda y hogar.
               </p>
             </div>
             <div class="product-card">
               <div class="product-icon">
-                <!-- SVG de microfibra/sintético -->
                 <svg
                   width="52"
                   height="52"
@@ -532,15 +639,13 @@
                   <path d="M16 16l20 20M36 16L16 36" />
                 </svg>
               </div>
-              <h3 class="product-title">Telas sintéticas y técnicas</h3>
+              <h3 class="product-title">Telas Sintéticas</h3>
               <p class="product-desc">
-                Poliéster, nylon y microfibras con acabados anti‑UV, repelente
-                al agua y antiestático.
+                Poliéster, nylon y microfibras con acabados funcionales.
               </p>
             </div>
             <div class="product-card">
               <div class="product-icon">
-                <!-- SVG mezcla inteligente -->
                 <svg
                   width="52"
                   height="52"
@@ -554,15 +659,14 @@
                   <path d="M26 13v26M13 26h26" />
                 </svg>
               </div>
-              <h3 class="product-title">Mezclas inteligentes</h3>
+              <h3 class="product-title">Mezclas Inteligentes</h3>
               <p class="product-desc">
-                Combinaciones de hilos naturales y sintéticos para mejorar
-                propiedades mecánicas y térmicas.
+                Combinaciones de hilos para mejorar propiedades mecánicas y
+                térmicas.
               </p>
             </div>
             <div class="product-card">
               <div class="product-icon">
-                <!-- SVG acabados -->
                 <svg
                   width="52"
                   height="52"
@@ -576,40 +680,20 @@
                   <path d="M16 34v4M36 34v4" />
                 </svg>
               </div>
-              <h3 class="product-title">Acabados a medida</h3>
+              <h3 class="product-title">Acabados a Medida</h3>
               <p class="product-desc">
-                Tintes, estampados y tratamientos funcionales según
-                especificaciones del cliente.
-              </p>
-            </div>
-            <div class="product-card">
-              <div class="product-icon">
-                <!-- SVG logística -->
-                <svg
-                  width="52"
-                  height="52"
-                  fill="none"
-                  stroke="#2d2d5c"
-                  stroke-width="2.1"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="12" y="26" width="28" height="12" rx="4" />
-                  <circle cx="18" cy="40" r="2.5" />
-                  <circle cx="34" cy="40" r="2.5" />
-                  <path d="M32 26V16a4 4 0 0 0-4-4h-4a4 4 0 0 0-4 4v10" />
-                </svg>
-              </div>
-              <h3 class="product-title">Servicios complementarios</h3>
-              <p class="product-desc">
-                Cortes, empaques especializados y logística just‑in‑time.
+                Tintes, estampados y tratamientos personalizados.
               </p>
             </div>
           </div>
+          <div class="puntada-bajo"></div>
         </section>
 
-        <!-- ===== CONTACTO ===== -->
-        <section id="contacto" class="contact container">
+        <!-- CONTACTO -->
+        <section
+          id="contacto"
+          class="contact container fancy-bg section-animate"
+        >
           <h2>Contacto</h2>
           <form action="#" method="POST">
             <input type="text" name="nombre" placeholder="Tu nombre" required />
@@ -630,13 +714,13 @@
       </div>
     </div>
 
-    <!-- ===== FOOTER ===== -->
+    <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container">
         <p>&copy; 2025 Textilera Fleece. Todos los derechos reservados.</p>
       </div>
     </footer>
-
+    <!-- Script principal -->
     <script src="main.js"></script>
   </body>
 </html>
