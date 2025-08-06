@@ -15,7 +15,8 @@ html, body {
 * { box-sizing: border-box; }
 
 .site-main-content {
-  background: linear-gradient(120deg, #eaf6fe 60%, #fafdff 100%);
+   background: radial-gradient(circle at 70% 40%, #b7eaff44 0%, #fafdff 60%), 
+            linear-gradient(120deg, #eaf6fe 60%, #fafdff 100%);
   /* O cualquier fondo que quieras */
   position: relative;
   z-index: 1;
@@ -36,6 +37,16 @@ html, body {
   position: relative;
   z-index: 2;
 }
+
+.ondas-bg-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 0;
+  pointer-events: none;
+}
+
 
 
 /* =============== NAVBAR CON LOGO GRANDE CENTRADO Y DEGRADADO =============== */
@@ -320,7 +331,8 @@ html, body {
 .mision-vision-grid {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;      /* Centra horizontalmente */
+  align-items: center;          /* Centra verticalmente */
   gap: 3.2rem;
 }
 
@@ -604,7 +616,6 @@ html, body {
 }
 
 .ubicacion-section {
-  background: #fafdff;
   padding: 2.2rem 0 2.5rem 0;
   display: flex; justify-content: center;
 }
@@ -798,13 +809,27 @@ html, body {
 /* ====== VENTAJAS/¿POR QUÉ NOSOTROS? ====== */
 .ventajas-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2.2rem 2.2rem;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 2.2rem;
   max-width: 1050px;
   margin: 0 auto;
   align-items: stretch;
   justify-items: center;
 }
+
+/* Responsive: 2 arriba y 2 abajo para pantallas menores a 900px */
+@media (max-width: 900px) {
+  .ventajas-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas para tablet */
+  }
+}
+/* Responsive: 1 por fila para móvil pequeño */
+@media (max-width: 600px) {
+  .ventajas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .ventaja-card {
   background: var(--fondo-seccion);
   border-radius: 1.5em;
@@ -843,7 +868,7 @@ html, body {
 .servicios-descripcion {
   text-align: center;
   color: var(--gris-texto);
-  font-size: 1.18rem;
+  font-size: 1.5rem;
   font-family: 'Montserrat', Arial, sans-serif;
   margin-top: -1.2rem;
   margin-bottom: 2.8rem;
@@ -1170,11 +1195,13 @@ html, body {
 .media-card-desc {
   margin-bottom: 1.6rem;
   color: var(--gris-texto);
-  font-size: 1.13rem;
+  font-size: 1.3rem;
   font-family: 'Montserrat', Arial, sans-serif;
   text-align: left;
   line-height: 1.45;
 }
+
+
 /* CENTRAR TITULOS SIEMPRE */
 .titulo-seccion, .media-card-desc {
   text-align: center !important;
@@ -1360,3 +1387,90 @@ html, body {
   justify-content: center;
 }
 
+.separador-pagina-llamativo {
+  margin: 4.5em auto 2.3em auto;
+  text-align: center;
+  padding: 3.4em 1em 2em 1em;
+  background: linear-gradient(120deg, #eaf6fe 60%, #ffe59f 100%);
+  border-radius: 2em;
+  box-shadow: 0 6px 40px -12px #2196f349;
+  position: relative;
+  overflow: hidden;
+}
+.separador-pagina-llamativo h2 {
+  font-size: 1.9em;
+  font-family: 'Oswald', 'Montserrat', Arial, sans-serif;
+  font-weight: 800;
+  color: #234167;
+  margin-bottom: 0.5em;
+}
+.separador-pagina-llamativo .emoji-explora {
+  font-size: 1.4em;
+  vertical-align: middle;
+  margin-right: 0.15em;
+  animation: exploraJump 2.5s infinite cubic-bezier(.56,1.45,.46,1.05);
+}
+@keyframes exploraJump {
+  0%,100% { transform: translateY(0);}
+  60% { transform: translateY(-12px);}
+}
+.separador-pagina-llamativo p {
+  color: #2963b4;
+  font-size: 1.14em;
+  margin-bottom: 1.5em;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.boton-ir-servicios-llamativo {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 38px;
+  background: linear-gradient(90deg, #2196f3 80%, #ffe59f 120%);
+  color: #fff;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 1.21em;
+  font-weight: 700;
+  box-shadow: 0 4px 18px #2196f363, 0 1.5px 8px #ffe59f55;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  transition: background 0.25s, box-shadow 0.18s, transform 0.18s;
+  position: relative;
+  border: none;
+  outline: none;
+}
+.boton-ir-servicios-llamativo .icono-flecha {
+  display: inline-block;
+  margin-left: 0.8em;
+  font-size: 1.12em;
+  transition: transform 0.25s;
+}
+.boton-ir-servicios-llamativo:hover {
+  background: linear-gradient(90deg, #1766a3 80%, #ffd23a 120%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 30px -8px #1861a577, 0 1.5px 16px #ffe59f88;
+}
+.boton-ir-servicios-llamativo:hover .icono-flecha {
+  transform: translateX(8px) scale(1.13);
+}
+.ondas-separador {
+  margin-top: 2.2em;
+  width: 100%;
+  height: 60px;
+  pointer-events: none;
+  opacity: 0.85;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.ondas-separador svg {
+  width: 100%;
+  height: 60px;
+  display: block;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .separador-pagina-llamativo { padding: 2em 0.5em 1em 0.5em; }
+  .separador-pagina-llamativo h2 { font-size: 1.2em; }
+  .boton-ir-servicios-llamativo { font-size: 1em; padding: 10px 18px;}
+}
