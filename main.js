@@ -1,4 +1,3 @@
-
 /*!
  * main_clean.js – versión depurada (06‑ago‑2025)
  * — Se consolidaron múltiples listeners DOMContentLoaded en uno solo.
@@ -152,3 +151,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 });
 window.addEventListener('scroll', animateOnScroll, { passive: true });
+
+document.addEventListener("DOMContentLoaded", function () {
+  tsParticles.load({
+    id: "particles-main",
+    options: {
+      background: { color: "transparent" },
+      particles: {
+        number: { value: 54 },         // Más partículas
+        color: { value: "#2196f3" },   // Azul brillante, cámbialo si quieres
+        size: { value: 3.8, random: { enable: true, minimumValue: 2.6 } }, // Más grandes y variación
+        opacity: { value: 0.42 },      // Mucho más visible
+        move: { enable: true, speed: 0.45 },
+        shape: { type: "circle" }
+      },
+      interactivity: {
+        events: { onhover: { enable: false } }
+      }
+    }
+  });
+});
+

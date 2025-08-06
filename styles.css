@@ -14,6 +14,30 @@ html, body {
 }
 * { box-sizing: border-box; }
 
+.site-main-content {
+  background: linear-gradient(120deg, #eaf6fe 60%, #fafdff 100%);
+  /* O cualquier fondo que quieras */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+}
+
+.particles-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.site-main-content > *:not(.particles-bg) {
+  position: relative;
+  z-index: 2;
+}
+
+
 /* =============== NAVBAR CON LOGO GRANDE CENTRADO Y DEGRADADO =============== */
 .site-header {
   width: 100vw;
@@ -346,7 +370,6 @@ html, body {
 }
 
 .industrias-section {
-  background: #f7fbff;
   padding: 2.8rem 0 2.8rem 0;
 }
 
@@ -437,7 +460,6 @@ html, body {
 
 
 .contacto-section {
-  background: linear-gradient(120deg, #eaf6fe 65%, #ffe59f 100%);
   padding: 3.5rem 0 3rem 0;
 }
 
@@ -1337,3 +1359,4 @@ html, body {
 .site-nav ul {
   justify-content: center;
 }
+
