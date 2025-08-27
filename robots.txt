@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://texfleece.com/sitemap.xml
